@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo "Script all arguments $*"
+
+#########################################
+# Cleanup working directory
+# Global:
+# - HOME
+# - PATH
+# Arguments:
+# - None (в случае отсутствия аргументов)
+# - program1 for ...
+# - arg4 for ....
+#########################################
+clean() {
+    echo "going to clean directory..."
+    echo "First argument: $1"
+    echo "All arguments: $*"
+    index=0
+    for arg in "$@"; do
+        echo "Index: ${index}. Argument: ${arg}"
+        (( index++ ))
+    done
+}
+
+clean program1 25 98 arg4
+echo "Clean function status: $?"
